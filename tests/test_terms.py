@@ -1,4 +1,4 @@
-"""SEM-01: semantic terms, golden tests against the practicum/textbook."""
+"""SEM-01: semantic terms, golden tests."""
 
 from __future__ import annotations
 
@@ -24,23 +24,21 @@ from sipl.semantics.terms import (
 from .conftest import DATA, DIVISION, GCD, GOLDEN, POWER, read
 
 
-def test_power_term_from_practicum() -> None:
-    # practicum p. 16: "загальний терм для програми"
+def test_power_term() -> None:
     assert render(sem_P(parse(POWER))) == (
         "AS^R(1) · WH(S2(gr, Y⇒, 0), AS^R(S2(mult, R⇒, X⇒)) · AS^Y(S2(sub, Y⇒, 1)))"
     )
 
 
-def test_gcd_term_from_textbook() -> None:
-    # Nikitchenko 2020, proof of Theorem 1.3
+def test_gcd_term() -> None:
     assert render(sem_P(parse(GCD))) == (
         "WH(S1(neg, S2(eq, M⇒, N⇒)), IF(S2(gr, M⇒, N⇒), AS^M(S2(sub, M⇒, N⇒)), "
         "AS^N(S2(sub, N⇒, M⇒))))"
     )
 
 
-def test_division_term_from_practicum() -> None:
-    # practicum p. 24 (modular test 1), uses the extension >= (gre)
+def test_division_term() -> None:
+    # uses the extension >= (gre)
     assert render(sem_P(parse(DIVISION))) == (
         "AS^R(0) · WH(S2(gre, X⇒, Y⇒), AS^X(S2(sub, X⇒, Y⇒)) · AS^R(S2(add, R⇒, 1)))"
     )
@@ -117,7 +115,7 @@ def test_render_styles() -> None:
     assert r"S^{2}(\mathit{gr}, Y\Rightarrow, \bar{0})" in latex
 
 
-def test_explanation_chain_matches_practicum() -> None:
+def test_explanation_chain() -> None:
     exp = explain(parse(POWER))
     assert exp.start.startswith("sem_P(begin R := 1;")
     rules = [s.rule for s in exp.steps]

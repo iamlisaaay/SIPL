@@ -3,7 +3,7 @@
 Every node carries a :class:`SourceSpan`; spans are excluded from equality so that
 ``parse(unparse(tree)) == tree`` can be used as a structural round-trip check.
 
-Syntactic categories follow the practicum notation:
+Syntactic categories follow the course notation:
 ``Prog`` (P), ``Stm`` (S), ``Aexp`` (a), ``Bexp`` (b), ``Var`` (x), ``Num`` (n).
 """
 
@@ -148,8 +148,8 @@ class Assign(Node):
 class Seq(Node):
     """Sequential composition ``S1; S2; ...; Sn`` (n >= 2).
 
-    The BNF rule ``S ::= S1; S2`` is binary; composition is associative
-    (Lemma 1.1 of the textbook), so the AST keeps the flat list.
+    The BNF rule ``S ::= S1; S2`` is binary; composition is associative,
+    so the AST keeps the flat list.
     """
 
     items: tuple[Stm, ...]
@@ -345,7 +345,7 @@ def unparse(node: Node) -> str:
 
 
 def format_program(program: Program, indent: str = "  ") -> str:
-    """Multi-line layout in the style of the practicum examples."""
+    """Multi-line layout, one statement per line."""
     lines: list[str] = []
 
     def emit(s: Stm, depth: int, suffix: str = "") -> None:

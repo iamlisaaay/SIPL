@@ -3,7 +3,7 @@
 [![CI](https://github.com/iamlisaaay/SIPL/actions/workflows/ci.yml/badge.svg)](https://github.com/iamlisaaay/SIPL/actions/workflows/ci.yml)
 
 Набір інструментів для навчальної мови **SIPL** (SImple Programming Language) з курсу
-«Теорія програмування» (М.С. Нікітченко; практикум Шишацької, Криволапа, Шишацького, 2024).
+«Теорія програмування».
 
 Трек **«Формальна семантика»**: від граматики й дерева виводу до семантичного терму,
 його обчислення на станах і доведення коректності програм із циклами.
@@ -75,7 +75,7 @@ examples/power.sipl: синтаксично правильна програма 
   змінні: R, Y, X; циклів: 1
 ```
 
-**Дерево виводу** (VIS-01). Листки пронумеровано в порядку обходу, як на рис. 1 практикуму:
+**Дерево виводу** (VIS-01). Листки пронумеровано в порядку обходу:
 
 ```bash
 sipl tree examples/power.sipl
@@ -178,9 +178,9 @@ sipl prove examples/power.sipl
 
 | Файл | Що обчислює | Коректність |
 |---|---|---|
-| [`power.sipl`](examples/power.sipl) | x^y (практикум, ПР 1-3) | доведено |
-| [`gcd.sipl`](examples/gcd.sipl) | НСД (підручник, теореми 1.3-1.4) | доведено |
-| [`division.sipl`](examples/division.sipl) | x div y (МКР 1, розширення `>=`) | доведено |
+| [`power.sipl`](examples/power.sipl) | x^y | доведено |
+| [`gcd.sipl`](examples/gcd.sipl) | НСД | доведено |
+| [`division.sipl`](examples/division.sipl) | x div y (розширення `>=`) | доведено |
 | [`factorial.sipl`](examples/factorial.sipl) | n! | доведено |
 | [`progression.sipl`](examples/progression.sipl) | 2 + 4 + ... + 2n (варіант 7) | доведено |
 | [`parity.sipl`](examples/parity.sipl) | парність без div/mod (варіант 12) | доведено |

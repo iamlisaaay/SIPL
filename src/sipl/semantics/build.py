@@ -1,7 +1,7 @@
-"""Construction of semantic terms: sem_P, sem_S, sem_A, sem_B (practicum p. 15).
+"""Construction of semantic terms: sem_P, sem_S, sem_A, sem_B.
 
 The term is built recursively over the AST.  :func:`explain` additionally records the
-rewriting chain the way it is done by hand in the practicum: start from
+rewriting chain the way it is done by hand: start from
 ``sem_P(<program text>)`` and repeatedly replace the leftmost-outermost untranslated
 part ``sem_X(...)`` by the right-hand side of the matching rule.
 """

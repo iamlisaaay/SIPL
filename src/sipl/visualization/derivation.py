@@ -1,7 +1,7 @@
 """Derivation (parse) tree of a SIPL program in terms of the *course* BNF.
 
 Lark parses with a precedence-layered grammar; this module maps that concrete tree
-back onto the ambiguous BNF of the practicum, so the result is exactly the tree a
+back onto the ambiguous course BNF, so the result is exactly the tree a
 student draws: metavariables ``<програма>``, ``<оператор>``, ``<вираз>``,
 ``<умова>``, ``<змінна>``, ``<число>`` and rule names ``NP1``, ``NS1``-``NS6``,
 ``NA1``-``NA6``, ``NB1``-``NB5``, ``NV``, ``NN``.
@@ -24,7 +24,7 @@ from sipl.span import SourceSpan, span_from_offsets
 
 Notation = Literal["bnf", "math"]
 
-# metavariable per syntactic category, in both notations of the practicum
+# metavariable per syntactic category, in both notations
 LABELS: dict[str, dict[str, str]] = {
     "bnf": {
         "Prog": "<програма>",
@@ -139,7 +139,7 @@ class DerivationTree:
         return [leaf.text or "" for leaf in self.root.leaves()]
 
     def yield_matches_source(self) -> bool:
-        """The practicum's syntactic-correctness check.
+        """Syntactic-correctness check.
 
         Reading the leaves left to right must give back the program text
         (up to whitespace and comments).

@@ -1,4 +1,4 @@
-"""Application of a semantic term to a state (practicum, practical work 2).
+"""Application of a semantic term to a state.
 
 The evaluator follows the formulas of the program algebra literally and records which
 formula was applied at every step:
@@ -182,7 +182,7 @@ class _Evaluator:
         return render(t)  # pragma: no cover
 
     def calc(self, t: Term, st: State, name: str) -> tuple[int | bool, str]:
-        """Value plus the practicum-style chain ``f(st) = mult(1, 5) = 5``."""
+        """Value plus the chain ``f(st) = mult(1, 5) = 5``."""
         v = self.value(t, st)
         shown = self.shown(t, st)
         chain = f"{render(t)}({name})"

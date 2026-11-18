@@ -1,4 +1,4 @@
-"""Semantic terms of the program algebra A_Prog (Nikitchenko, practicum p. 13-15).
+"""Semantic terms of the program algebra A_Prog.
 
 Term sorts:
 

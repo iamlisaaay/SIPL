@@ -13,9 +13,9 @@ from sipl.visualization.derivation import derivation_tree
 from .conftest import DATA, POWER, read
 
 
-def test_frontier_matches_practicum_figure() -> None:
+def test_frontier_matches_program_text() -> None:
     tree = derivation_tree(POWER)
-    # Рис. 1 of the practicum numbers the leaves 1..24 in exactly this order
+    # leaves are numbered 1..24 in exactly this order
     assert tree.frontier() == [
         "begin",
         "R",

@@ -14,7 +14,7 @@ proof from the course (induction on the number of iterations ``NumItWH``):
 =============  =================================================================
 
 ``bound`` and ``decrease`` give a strictly decreasing sequence of naturals, which
-cannot be infinite – the same argument as in Theorem 1.4 of the textbook.
+cannot be infinite.
 """
 
 from __future__ import annotations

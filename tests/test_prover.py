@@ -37,7 +37,7 @@ def test_power_total_correctness_proved() -> None:
     assert "wp(" in text
 
 
-def test_vc_formulas_are_the_textbook_conditions() -> None:
+def test_vc_formulas_are_the_course_conditions() -> None:
     vcs = generate(parse(POWER), spec_from_dict(POWER_SPEC)).vcs
     by_kind = {v.kind: v.text for v in vcs}
     assert by_kind["init"] == "X = x ∧ Y = y ∧ y >= 0 → 1 * pow(X, Y) = pow(x, y) ∧ Y >= 0 ∧ X = x"
@@ -45,7 +45,7 @@ def test_vc_formulas_are_the_textbook_conditions() -> None:
     assert by_kind["exit"].endswith("∧ ¬Y > 0 → R = pow(x, y)")
 
 
-def test_gcd_textbook_theorem() -> None:
+def test_gcd_proved() -> None:
     spec = load_spec(EXAMPLES / "gcd.spec.toml")
     assert prove(parse(GCD), spec).verdict == "proved"
 

@@ -76,7 +76,7 @@ def to_dot(tree: DerivationTree) -> str:
     for n in tree.root.walk():
         for c in n.children:
             out.append(f"  n{n.id} -> n{c.id};")
-    # all terminals on one rank: the frontier reads left to right like in the practicum
+    # all terminals on one rank: the frontier reads left to right
     leaves = " ".join(f"n{leaf.id};" for leaf in tree.root.leaves())
     out.append(f"  {{ rank=same; {leaves} }}")
     out.append("}")

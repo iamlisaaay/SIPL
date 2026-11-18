@@ -19,8 +19,8 @@ def run(src: str, state: str, **kw):
     return apply_term(sem_P(parse(src)), parse_state(state), **kw)
 
 
-def test_power_practicum_test_case() -> None:
-    # practicum p. 16-17: st = [X ↦ 5, Y ↦ 2] gives R = 25
+def test_power_test_case() -> None:
+    # st = [X ↦ 5, Y ↦ 2] gives R = 25
     r = run(POWER, "X=5, Y=2")
     assert r.status == "defined"
     assert r.state == {"X": 5, "Y": 0, "R": 25}
@@ -43,7 +43,7 @@ def test_power_trace_follows_formulas() -> None:
     assert out.rstrip().endswith("Результат: [X ↦ 5, Y ↦ 0, R ↦ 25]")
 
 
-def test_division_practicum() -> None:
+def test_division_eval() -> None:
     r = run(DIVISION, "[X ↦ 7, Y ↦ 4]")
     assert r.state == {"X": 3, "Y": 4, "R": 1}
 
