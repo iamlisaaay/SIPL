@@ -1,0 +1,1 @@
+IF(S2(and, S2(and, S2(gre, X⇒, 0), S2(lse, X⇒, 9)), S1(neg, S2(neq, X⇒, 5))), AS^D(1), AS^D(0))

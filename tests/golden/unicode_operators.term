@@ -1,0 +1,1 @@
+AS^R(S2(sub, S2(mult, X⇒, Y⇒), 1)) · IF(S2(or, S1(neg, S2(gr, R⇒, 0)), S2(eq, R⇒, 0)), AS^R(0), id)

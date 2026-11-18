@@ -1,0 +1,1 @@
+AS^I(0) · WH(S2(gr, 3, I⇒), AS^J(0) · WH(S2(gr, 2, J⇒), IF(S2(or, S2(eq, I⇒, J⇒), S1(neg, S2(gr, J⇒, 0))), AS^C(S2(add, C⇒, 1)), id)) · AS^I(S2(add, I⇒, 1)))

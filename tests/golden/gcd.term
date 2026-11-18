@@ -1,0 +1,1 @@
+WH(S1(neg, S2(eq, M⇒, N⇒)), IF(S2(gr, M⇒, N⇒), AS^M(S2(sub, M⇒, N⇒)), AS^N(S2(sub, N⇒, M⇒))))
