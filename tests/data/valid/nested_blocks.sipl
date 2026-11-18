@@ -1,0 +1,6 @@
+begin
+  begin
+    begin X := 1 end
+  end;
+  skip
+end

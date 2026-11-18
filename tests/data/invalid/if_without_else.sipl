@@ -1,0 +1,3 @@
+begin
+  if X > 1 then X := 0
+end

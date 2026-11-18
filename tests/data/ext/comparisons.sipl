@@ -1,0 +1,3 @@
+begin
+  if X >= 0 and X <= 9 and not X != 5 then D := 1 else D := 0
+end

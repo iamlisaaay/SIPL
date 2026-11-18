@@ -1,0 +1,18 @@
+{
+  "bad_character.sipl":           {"code": "E001", "line": 2, "column": 10},
+  "condition_as_expression.sipl": {"code": "E002", "line": 2, "column": 10},
+  "empty_program.sipl":           {"code": "E002", "line": 2, "column": 1},
+  "eq_instead_of_assign.sipl":    {"code": "E002", "line": 2, "column": 5, "hint": "':='"},
+  "expression_as_condition.sipl": {"code": "E002", "line": 2, "column": 8},
+  "extra_end.sipl":               {"code": "E004", "line": 4, "column": 1},
+  "if_without_else.sipl":         {"code": "E002", "line": 3, "column": 1, "hint": "else"},
+  "keyword_as_variable.sipl":     {"code": "E002", "line": 2, "column": 9},
+  "missing_end.sipl":             {"code": "E003", "line": 4, "column": 14, "hint": "begin"},
+  "missing_semicolon.sipl":       {"code": "E002", "line": 3, "column": 3, "hint": "';'"},
+  "no_begin.sipl":                {"code": "E002", "line": 1, "column": 1},
+  "split_assign.sipl":            {"code": "E001", "line": 2, "column": 5, "hint": "':='"},
+  "trailing_semicolon.sipl":      {"code": "E002", "line": 3, "column": 1, "hint": "зайва ';'"},
+  "unary_minus_variable.sipl":    {"code": "E002", "line": 2, "column": 9},
+  "unbalanced_paren.sipl":        {"code": "E002", "line": 3, "column": 1},
+  "while_without_do.sipl":        {"code": "E002", "line": 3, "column": 5}
+}

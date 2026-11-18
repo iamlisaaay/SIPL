@@ -1,0 +1,13 @@
+// F = Fib(n), n > 0 (варіант 11)
+begin
+  A := 0;
+  F := 1;
+  I := 1;
+  while N > I do
+  begin
+    T := F;
+    F := A + F;
+    A := T;
+    I := I + 1
+  end
+end

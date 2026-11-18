@@ -1,0 +1,4 @@
+begin
+  Q := X div Y;
+  R := X mod Y
+end

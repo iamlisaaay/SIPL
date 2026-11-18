@@ -1,0 +1,10 @@
+begin
+  I := 0;
+  while 3 > I do
+  begin
+    J := 0;
+    while 2 > J do
+      if (I = J) or not (J > 0) then C := C + 1 else skip;
+    I := I + 1
+  end
+end
