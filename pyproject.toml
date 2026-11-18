@@ -1,0 +1,74 @@
+[build-system]
+requires = ["hatchling>=1.24"]
+build-backend = "hatchling.build"
+
+[project]
+name = "sipl-toolkit"
+version = "1.0.0"
+description = "SIPL Language Toolkit: grammar, parser, derivation trees, semantic terms and a correctness-proof assistant for the SIPL language (course «Теорія програмування»)"
+readme = "README.md"
+requires-python = ">=3.11"
+license = { text = "MIT" }
+authors = [{ name = "Tasia" }]
+keywords = ["sipl", "semantics", "parser", "verification", "education"]
+classifiers = [
+    "Programming Language :: Python :: 3",
+    "License :: OSI Approved :: MIT License",
+    "Topic :: Education",
+    "Topic :: Software Development :: Compilers",
+]
+dependencies = [
+    "lark>=1.1.9",
+    "z3-solver>=4.12",
+]
+
+[project.optional-dependencies]
+dev = [
+    "pytest>=8",
+    "pytest-cov>=5",
+    "ruff>=0.5",
+    "mypy>=1.10",
+    "build>=1.2",
+]
+
+[project.scripts]
+sipl = "sipl.cli:main"
+
+[tool.hatch.build.targets.wheel]
+packages = ["src/sipl"]
+
+[tool.hatch.build.targets.sdist]
+include = ["src/sipl", "tests", "examples", "docs", "grammar", "README.md", "CHANGELOG.md", "LICENSE"]
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
+addopts = "-q"
+
+[tool.coverage.run]
+source = ["sipl"]
+branch = true
+
+[tool.coverage.report]
+show_missing = true
+skip_covered = true
+fail_under = 85
+exclude_lines = ["pragma: no cover", "if TYPE_CHECKING:", "raise NotImplementedError"]
+
+[tool.ruff]
+line-length = 100
+target-version = "py311"
+
+[tool.ruff.lint]
+select = ["E", "F", "W", "I", "B", "UP", "SIM"]
+ignore = ["E501", "RUF001", "RUF002", "RUF003"]
+
+[tool.mypy]
+python_version = "3.11"
+strict = true
+warn_unused_ignores = true
+packages = ["sipl"]
+mypy_path = "src"
+
+[[tool.mypy.overrides]]
+module = ["z3", "z3.*"]
+ignore_missing_imports = true
