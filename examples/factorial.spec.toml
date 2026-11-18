@@ -1,0 +1,6 @@
+pre  = "N = n ∧ n >= 0"
+post = "F = fact(n)"
+
+[[loop]]
+invariant = "F = fact(I) ∧ I >= 0 ∧ ¬ I > N ∧ N = n"
+variant   = "N - I"

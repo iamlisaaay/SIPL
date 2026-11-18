@@ -1,0 +1,10 @@
+// Перевірка парності n без div/mod (варіант 12): E = 1, якщо n парне
+begin
+  E := 1;
+  K := N;
+  while K > 0 do
+  begin
+    if E = 1 then E := 0 else E := 1;
+    K := K - 1
+  end
+end

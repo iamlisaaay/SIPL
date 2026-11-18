@@ -1,0 +1,6 @@
+pre  = "N = n ∧ n > 0"
+post = "S = n * (n + 1)"
+
+[[loop]]
+invariant = "S = I * (I + 1) ∧ I >= 0 ∧ ¬ I > N ∧ N = n"
+variant   = "N - I"

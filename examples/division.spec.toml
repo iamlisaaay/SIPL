@@ -1,0 +1,6 @@
+pre  = "X = x ∧ Y = y ∧ x >= 0 ∧ y > 0"
+post = "x = R * y + X ∧ 0 <= X ∧ X < y"
+
+[[loop]]
+invariant = "x = R * y + X ∧ X >= 0 ∧ Y = y ∧ y > 0"
+variant   = "X"

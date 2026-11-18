@@ -1,0 +1,7 @@
+# Повна коректність програми power.sipl
+pre  = "X = x ∧ Y = y ∧ y >= 0"
+post = "R = pow(x, y)"
+
+[[loop]]
+invariant = "R * pow(X, Y) = pow(x, y) ∧ Y >= 0 ∧ X = x"
+variant   = "Y"

@@ -1,0 +1,10 @@
+// F = n! (лише конструкції БНФ курсу)
+begin
+  F := 1;
+  I := 0;
+  while N > I do
+  begin
+    I := I + 1;
+    F := F * I
+  end
+end

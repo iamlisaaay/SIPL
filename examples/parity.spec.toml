@@ -1,0 +1,6 @@
+pre  = "N = n ∧ n > 0"
+post = "(E = 1 ∧ n mod 2 = 0) ∨ (E = 0 ∧ n mod 2 = 1)"
+
+[[loop]]
+invariant = "K >= 0 ∧ N = n ∧ ((E = 1 ∧ (n - K) mod 2 = 0) ∨ (E = 0 ∧ (n - K) mod 2 = 1))"
+variant   = "K"
