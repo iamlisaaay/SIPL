@@ -1,24 +1,50 @@
 # Архітектура
 
-```text
-                    grammar/sipl.lark
-                           │
- текст ──► parser.py ──────┼──► Lark-дерево ──► visualization/derivation.py ──► export.py
-              │            │     (конкретне)        дерево виводу за БНФ          text/json/dot/svg/html
-              │            │
-              ▼
-           ast.py  ──────────► semantics/build.py ──► semantics/terms.py ──► semantics/evaluate.py
-       (AST + SourceSpan)        sem_P/S/A/B            TFS/TFA/TFB             траса AF_*, стани
-              │                                                    ▲
-              ▼                                                    │ відтворення контрприкладів
-         prover/vcgen.py ──► prover/solver.py (Z3, перебір) ──► prover/assistant.py
-           wp, умови           ▲                                   звіт, тестування
-              ▲                │
-         prover/spec.py   prover/formula.py
-         (TOML-специфікації) (формули, функції, обчислення)
+```mermaid
+flowchart TD
+    src(["Текст програми .sipl"])
+    grammar[/"grammar/sipl.lark"/]
 
- cli.py – тонка оболонка над усім переліченим (жодної логіки мови)
+    subgraph syntax["Синтаксис · CORE-01, CORE-02"]
+        parser["parser.py<br/>розбір за граматикою"]
+        ast["ast.py<br/>AST + SourceSpan"]
+        cst["Конкретне дерево Lark"]
+    end
+
+    subgraph vis["Візуалізація · VIS-01"]
+        deriv["visualization/derivation.py<br/>дерево виводу за БНФ курсу"]
+        export["visualization/export.py<br/>text, JSON, DOT, SVG, HTML"]
+    end
+
+    subgraph sem["Семантика · SEM-01, SEM-02"]
+        build["semantics/build.py<br/>sem_P, sem_S, sem_A, sem_B"]
+        terms["semantics/terms.py<br/>терми TFS, TFA, TFB"]
+        evaluate["semantics/evaluate.py<br/>траса AF_*, стани"]
+    end
+
+    subgraph prover["Доведення · SEM-04"]
+        spec["prover/spec.py<br/>TOML-специфікація"]
+        vcgen["prover/vcgen.py<br/>wp, умови перевірки"]
+        formula["prover/formula.py<br/>формули, функції"]
+        solver["prover/solver.py<br/>Z3, перебір"]
+        assistant["prover/assistant.py<br/>звіт, тестування"]
+    end
+
+    src --> parser
+    grammar -.-> parser
+    parser --> ast
+    parser --> cst
+    cst --> deriv --> export
+    ast --> build --> terms --> evaluate
+    ast --> vcgen
+    spec --> vcgen
+    vcgen --> solver
+    formula --> solver
+    solver --> assistant
+    evaluate -- "відтворення контрприкладів" --> assistant
 ```
+
+`cli.py` – тонка оболонка над усім переліченим: у ній немає жодної логіки мови.
 
 ## Принципи
 
